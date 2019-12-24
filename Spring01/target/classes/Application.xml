@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--    id：对象的唯一标识
+              class 类的所在位置  包名.类名
+
+    -->
+    <!--    通过无参构造实例化bean   -->
+    <bean id="user" class="spring.User">
+        <property name="name" value="李四"/>
+        <property name="id"  value="1"/>
+        <property name="sex"  value="男"/>
+        <!--list集合-->
+        <property name="list">
+            <list>
+                <value>a1</value>
+                <value>a2</value>
+                <value>a3</value>
+            </list>
+        </property>
+        <!--set集合-->
+        <property name="set">
+            <set>
+                <value>s1</value>
+                <value>s2</value>
+                <value>s3</value>
+            </set>
+        </property>
+        <!--map集合-->
+        <property name="map">
+            <map>
+                <entry key="k1" value="admin"/>
+                <entry key="k2" value="root"/>
+            </map>
+        </property>
+     </bean>
+<!--  苹果对象-->
+    <bean id="apple" class="spring.Apple">
+        <!--set注入
+        property set注入属性值
+        -->
+        <property name="name" value="苹果"></property>
+        <property name="color" value="红色"/>
+    </bean>
+
+<!--    矿泉水对象-->
+    <bean id="water" class="spring.Water">
+        <property name="name" value="矿泉水"/>
+    </bean>
+
+<!--    糖对象-->
+    <bean id="suger" class="spring.Suger">
+        <property name="name" value="红糖"/>
+    </bean>
+
+<!--    创建饮料-->
+    <bean id="juice" class="spring.Juice">
+<!--
+  ref  表示指定依赖
+-->
+        <property name="apple" ref="apple"/>
+        <property name="water" ref="water"/>
+        <property name="suger" ref="suger"/>
+    </bean>
+
+
+
+</beans>
